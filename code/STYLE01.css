@@ -23,7 +23,6 @@ body {
     box-shadow: 0 4px 15px rgba(0,0,0,0.2); /* 盒子阴影 */
     text-align: left; /* 文本居左 */
     transition: all 0.3s ease;
-    display: block; /* 修改为block以正确居中 */
 }
 
 .container:hover{
@@ -85,7 +84,7 @@ a:hover {
   height: 40px;
   background: rgba(255, 255, 255, 0.95);
   border-radius: 60px;
-  animation: floatAcross 60s infinite linear;
+  animation: floatAcross 20s infinite linear;
   z-index: -1; /* 确保云朵在内容后面 */
 }
 
@@ -128,3 +127,4 @@ a:hover {
     top: 80%; 
     animation-delay: -12s; 
 }
+

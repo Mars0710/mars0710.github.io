@@ -20,7 +20,14 @@ body {
     border-radius: 10px; /* 圆角边框 */
     box-shadow: 0 4px 15px rgba(0,0,0,0.2); /* 盒子阴影 */
     text-align: left; /* 文本居左 */
+    transition: all 0.3s ease;
 }
+
+.container:hover{
+    transform: translateY(-2px); /* 悬停向上移动2px */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* 悬停阴影效果 */
+}
+
 
 h1 {
     color: navy; /* 文字颜色：海军蓝 */

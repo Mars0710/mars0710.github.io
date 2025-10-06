@@ -13,16 +13,16 @@ function check(a) {
     const pattern = /^(\d+)\+(\d+)$/;
     const match = a.match(pattern);
     if (!match) {
-        alert("介系撒？");
-        return;
+        document.getElementById('result').textContent="介系撒？";
     }
     const x = parseInt(match[1]);
     const y = parseInt(match[2]);
     // 检查条件：x+y>=20
     if (x + y >= 20) {
-        alert("手脚并用也算不出来呀");
+        document.getElementById('result').textContent="手脚并用也算不出来呀";
     } else {
-        alert("我知道！是"+(x+y));
+        document.getElementById('result').textContent ="我知道！是"+(x+y);
     }
 
 }
+

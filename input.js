@@ -14,15 +14,13 @@ function check(a) {
     const match = a.match(pattern);
     if (!match) {
         document.getElementById('result').textContent="介系撒？";
-        return;
     }
     const x = parseInt(match[1]);
     const y = parseInt(match[2]);
     // 检查条件：x+y>=20
     if (x + y >= 20) {
-        document.getElementById('result').textContent="手脚并用也算不出来呀";
+        document.getElementById('result').textContent="手脚并用也算不出来呀~";
     } else {
         document.getElementById('result').textContent ="我知道！是"+(x+y);
     }
-
 }

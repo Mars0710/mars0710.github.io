@@ -10,6 +10,8 @@ body {
     font-family: Arial, sans-serif; /* 字体：Arial，无衬线字体备用 */
     padding: 20px; /* 内边距 */
     min-height: 100vh; /* 最小高度为视口高度 */
+    position: relative; /* 为云朵定位提供参考 */
+    overflow-x: hidden; /* 防止水平滚动条 */
 }
 
 .container {
@@ -21,6 +23,7 @@ body {
     box-shadow: 0 4px 15px rgba(0,0,0,0.2); /* 盒子阴影 */
     text-align: left; /* 文本居左 */
     transition: all 0.3s ease;
+    display: block; /* 修改为block以正确居中 */
 }
 
 .container:hover{
@@ -82,7 +85,7 @@ a:hover {
   height: 40px;
   background: rgba(255, 255, 255, 0.95);
   border-radius: 60px;
-  animation: floatAcross 20s infinite linear;
+  animation: floatAcross 60s infinite linear;
   z-index: -1; /* 确保云朵在内容后面 */
 }
 
@@ -107,8 +110,21 @@ a:hover {
   top: -30px;
   right: 15px;
 }
+
 /* 为每个云朵添加不同的动画延迟 */
-.cloud:nth-child(1) { animation-delay: 0s; }
-.cloud:nth-child(2) { animation-delay: -15s; }
-.cloud:nth-child(3) { animation-delay: -8s; }
-.cloud:nth-child(4) { animation-delay: -12s; }
+.cloud:nth-child(1) { 
+    top: 20%; 
+    animation-delay: 0s; 
+}
+.cloud:nth-child(2) { 
+    top: 40%; 
+    animation-delay: -15s; 
+}
+.cloud:nth-child(3) { 
+    top: 60%; 
+    animation-delay: -8s; 
+}
+.cloud:nth-child(4) { 
+    top: 80%; 
+    animation-delay: -12s; 
+}

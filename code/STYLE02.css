@@ -1,0 +1,47 @@
+/* STYLE 02 - 优化版 */
+input {
+    padding: 12px 24px;
+    border: 2px solid navy;
+    border-radius: 6px;
+    display: inline-block;
+    font-size: 1.0em;
+    transition: all 0.3s ease;
+    background-color: white;
+    /* 添加一些建议的额外样式 */
+    outline: none; /* 移除默认焦点轮廓 */
+    color: #333; /* 设置文字颜色 */
+    box-sizing: border-box; /* 确保padding不会影响元素总宽度 */
+}
+
+input:hover {
+    /* 只需要定义悬停时变化的属性 */
+    border-color: #001f8b; /* 稍微亮一点的蓝色 */
+    background-color: #f8f9ff; /* 轻微的蓝色背景 */
+    box-shadow: 0 2px 8px rgba(0, 0, 128, 0.2); /* 添加阴影效果 */
+}
+
+/* 建议添加焦点状态 */
+input:focus {
+    border-color: #001f8b;
+    background-color: #f8f9ff;
+    box-shadow: 0 2px 12px rgba(0, 0, 128, 0.3);
+}
+
+button{
+    color: navy; /* 链接颜色：海军蓝 */
+    text-decoration: none; /* 移除下划线 */
+    padding: 12px 18px; /* 内边距 */
+    border: 2px solid navy; /* 边框：2px实线海军蓝 */
+    border-radius: 6px; /* 圆角边框 */
+    display: inline-block; /* 内联块级显示 */
+    font-size: 1.1em; /* 字体大小 */
+    transition: all 0.3s ease; /* 过渡动画效果 */
+    background-color: white; /* 背景颜色：白色 */
+}
+
+button:hover {
+    background-color: navy; /* 悬停背景颜色：海军蓝 */
+    color: white; /* 悬停文字颜色：白色 */
+    transform: translateY(-2px); /* 悬停向上移动2px */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* 悬停阴影效果 */
+}

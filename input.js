@@ -14,6 +14,7 @@ function check(a) {
     const match = a.match(pattern);
     if (!match) {
         document.getElementById('result').textContent="介系撒？";
+        return;
     }
     const x = parseInt(match[1]);
     const y = parseInt(match[2]);
@@ -25,4 +26,5 @@ function check(a) {
     }
 
 }
+
 

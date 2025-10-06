@@ -21,6 +21,7 @@ body {
     box-shadow: 0 4px 15px rgba(0,0,0,0.2); /* 盒子阴影 */
     text-align: left; /* 文本居左 */
     transition: all 0.3s ease;
+    display: inline-block;
 }
 
 .container:hover{
@@ -112,3 +113,4 @@ a:hover {
 .cloud:nth-child(2) { animation-delay: -15s; }
 .cloud:nth-child(3) { animation-delay: -8s; }
 .cloud:nth-child(4) { animation-delay: -12s; }
+

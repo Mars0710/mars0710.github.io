@@ -1,0 +1,107 @@
+/* STYLE01.css */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* 盒模型设置为边框盒 */
+}
+
+body {
+    background-color: lightblue; /* 背景颜色：浅蓝色 */
+    font-family: Arial, sans-serif; /* 字体：Arial，无衬线字体备用 */
+    padding: 20px; /* 内边距 */
+    min-height: 100vh; /* 最小高度为视口高度 */
+}
+
+.container {
+    max-width: 800px; /* 最大宽度 */
+    margin: 50px auto; /* 上下边距50px，水平居中 */
+    padding: 30px; /* 内边距 */
+    background-color: white; /* 背景颜色：白色 */
+    border-radius: 10px; /* 圆角边框 */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2); /* 盒子阴影 */
+    text-align: left; /* 文本居左 */
+}
+
+h1 {
+    color: navy; /* 文字颜色：海军蓝 */
+    text-align: left; /* 文本居左 */
+    font-size: 2.5em; /* 字体大小 */
+    margin-bottom: 20px; /* 下边距 */
+}
+
+p {
+    color: grey; /* 文字颜色：灰色 */
+    font-size: 1.2em; /* 字体大小 */
+    margin-bottom: 20px; /* 下边距 */
+}
+
+ul {
+    list-style-type: none; /* 移除列表样式 */
+    padding: 0; /* 移除内边距 */
+}
+
+li {
+    margin: 20px 0; /* 上下边距 */
+}
+
+a {
+    color: navy; /* 链接颜色：海军蓝 */
+    text-decoration: none; /* 移除下划线 */
+    padding: 12px 24px; /* 内边距 */
+    border: 2px solid navy; /* 边框：2px实线海军蓝 */
+    border-radius: 6px; /* 圆角边框 */
+    display: inline-block; /* 内联块级显示 */
+    font-size: 1.1em; /* 字体大小 */
+    transition: all 0.3s ease; /* 过渡动画效果 */
+    background-color: white; /* 背景颜色：白色 */
+}
+
+a:hover {
+    background-color: navy; /* 悬停背景颜色：海军蓝 */
+    color: white; /* 悬停文字颜色：白色 */
+    transform: translateY(-2px); /* 悬停向上移动2px */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* 悬停阴影效果 */
+}
+
+/* 定义漂浮动画 */
+@keyframes floatAcross {
+  0% { transform: translateX(-120px); } /* 起始位置：向左偏移120px */
+  100% { transform: translateX(calc(100vw + 120px)); } /* 结束位置：向右偏移视口宽度+120px */
+}
+
+.cloud {
+  position: absolute;
+  width: 120px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 60px;
+  animation: floatAcross 20s infinite linear;
+  z-index: -1; /* 确保云朵在内容后面 */
+}
+
+/* 创建不同大小和速度的云朵 */
+.cloud::before, .cloud::after {
+  content: '';
+  position: absolute;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 50%;
+}
+
+.cloud::before {
+  width: 50px;
+  height: 50px;
+  top: -20px;
+  left: 15px;
+}
+
+.cloud::after {
+  width: 70px;
+  height: 70px;
+  top: -30px;
+  right: 15px;
+}
+/* 为每个云朵添加不同的动画延迟 */
+.cloud:nth-child(1) { animation-delay: 0s; }
+.cloud:nth-child(2) { animation-delay: -15s; }
+.cloud:nth-child(3) { animation-delay: -8s; }
+.cloud:nth-child(4) { animation-delay: -12s; }

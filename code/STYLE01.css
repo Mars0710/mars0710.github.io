@@ -73,15 +73,17 @@ li {
 }
 
 a {
+    font-size: 1.1em;
+    font-weight: bold;
     color: navy;
     text-decoration: none;
-    padding: 12px 24px;
+    padding: 8px 10px;
     border: 2px solid navy;
-    border-radius: 6px;
-    display: inline-block;
-    font-size: 1.1em;
+    border-radius: 30px;
+    display: block;
     transition: all 0.3s ease;
     background-color: white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
 
 body.dark-mode a {
@@ -94,18 +96,28 @@ a:hover {
     background-color: navy;
     color: white;
     transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+#rtopcorner {
+    font-weight: bold;
+    position: fixed;
+    top: 18px;
+    right: 200px;
+    z-index: 10;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
 
 body.dark-mode a:hover {
     background-color: #6ab1e7;
     color: #16213e;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
 }
 
 /* 主题切换按钮 */
 .theme-toggle {
     position: fixed;
-    top: 20px;
+    top: 10px;
     right: 20px;
     z-index: 1000;
 }

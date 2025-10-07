@@ -206,7 +206,7 @@ body.dark-mode .cloud::after {
     pointer-events: none;
     opacity: 0;
     transition: opacity 0.5s ease;
-    z-index: -1;
+    z-index: -2;
 }
 
 body.dark-mode .stars {

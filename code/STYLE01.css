@@ -1,100 +1,168 @@
-/* STYLE01.css */
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box; /* 盒模型设置为边框盒 */
+    box-sizing: border-box;
 }
 
 body {
-    background-color: lightblue; /* 背景颜色：浅蓝色 */
-    font-family: Arial, sans-serif; /* 字体：Arial，无衬线字体备用 */
-    padding: 20px; /* 内边距 */
-    min-height: 100vh; /* 最小高度为视口高度 */
-    position: relative; /* 为云朵定位提供参考 */
-    overflow-x: hidden; /* 防止水平滚动条 */
+    background-color: lightblue;
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+    transition: all 0.5s ease;
+}
+
+body.dark-mode {
+    background-color: #1a1a2e;
+    color: #e6e6e6;
 }
 
 .container {
-    max-width: 800px; /* 最大宽度 */
-    margin: 50px auto; /* 上下边距50px，水平居中 */
-    padding: 30px; /* 内边距 */
-    background-color: white; /* 背景颜色：白色 */
-    border-radius: 10px; /* 圆角边框 */
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2); /* 盒子阴影 */
-    text-align: left; /* 文本居左 */
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    text-align: left;
     transition: all 0.3s ease;
-    display: block; /* 修改为block以正确居中 */
+    display: block;
 }
 
-.container:hover{
-    transform: translateY(-2px); /* 悬停向上移动2px */
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* 悬停阴影效果 */
+body.dark-mode .container {
+    background-color: #16213e;
+    color: #e6e6e6;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.4);
 }
 
+.container:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
 
 h1 {
-    color: navy; /* 文字颜色：海军蓝 */
-    text-align: left; /* 文本居左 */
-    font-size: 2.5em; /* 字体大小 */
-    margin-bottom: 20px; /* 下边距 */
+    color: navy;
+    text-align: left;
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+body.dark-mode h1 {
+    color: #6ab1e7;
 }
 
 p {
-    color: grey; /* 文字颜色：灰色 */
-    font-size: 1.2em; /* 字体大小 */
-    margin-bottom: 20px; /* 下边距 */
+    color: grey;
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+body.dark-mode p {
+    color: #b0b0b0;
 }
 
 ul {
-    list-style-type: none; /* 移除列表样式 */
-    padding: 0; /* 移除内边距 */
+    list-style-type: none;
+    padding: 0;
 }
 
 li {
-    margin: 20px 0; /* 上下边距 */
+    margin: 20px 0;
 }
 
 a {
-    color: navy; /* 链接颜色：海军蓝 */
-    text-decoration: none; /* 移除下划线 */
-    padding: 12px 24px; /* 内边距 */
-    border: 2px solid navy; /* 边框：2px实线海军蓝 */
-    border-radius: 6px; /* 圆角边框 */
-    display: inline-block; /* 内联块级显示 */
-    font-size: 1.1em; /* 字体大小 */
-    transition: all 0.3s ease; /* 过渡动画效果 */
-    background-color: white; /* 背景颜色：白色 */
+    color: navy;
+    text-decoration: none;
+    padding: 12px 24px;
+    border: 2px solid navy;
+    border-radius: 6px;
+    display: inline-block;
+    font-size: 1.1em;
+    transition: all 0.3s ease;
+    background-color: white;
+}
+
+body.dark-mode a {
+    color: #6ab1e7;
+    border-color: #6ab1e7;
+    background-color: #16213e;
 }
 
 a:hover {
-    background-color: navy; /* 悬停背景颜色：海军蓝 */
-    color: white; /* 悬停文字颜色：白色 */
-    transform: translateY(-2px); /* 悬停向上移动2px */
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* 悬停阴影效果 */
+    background-color: navy;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
 
-/* 定义漂浮动画 */
+body.dark-mode a:hover {
+    background-color: #6ab1e7;
+    color: #16213e;
+}
+
+/* 主题切换按钮 */
+.theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.toggle-btn {
+    padding: 10px 20px;
+    background-color: white;
+    color: navy;
+    border: 2px solid navy;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+body.dark-mode .toggle-btn {
+    background-color: #16213e;
+    color: #6ab1e7;
+    border-color: #6ab1e7;
+}
+
+.toggle-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+/* 云朵动画 */
 @keyframes floatAcross {
-  0% { transform: translateX(-120px); } /* 起始位置：向左偏移120px */
-  100% { transform: translateX(calc(100vw + 120px)); } /* 结束位置：向右偏移视口宽度+120px */
+  0% { transform: translateX(-120px); }
+  100% { transform: translateX(calc(100vw + 120px)); }
 }
 
 .cloud {
   position: absolute;
   width: 120px;
   height: 40px;
-  background: rgba(255, 255, 255, 0.95);
+  background: rgba(255, 255, 255, 1);
   border-radius: 60px;
   animation: floatAcross 20s infinite linear;
-  z-index: -1; /* 确保云朵在内容后面 */
+  z-index: -1;
 }
 
-/* 创建不同大小和速度的云朵 */
+body.dark-mode .cloud {
+    background: rgba(100, 100, 150, 1);
+}
+
 .cloud::before, .cloud::after {
   content: '';
   position: absolute;
-  background: rgba(255, 255, 255, 0.95);
+  background: rgba(255, 255, 255, 1);
   border-radius: 50%;
+}
+
+body.dark-mode .cloud::before,
+body.dark-mode .cloud::after {
+    background: rgba(100, 100, 150, 1);
 }
 
 .cloud::before {
@@ -111,7 +179,6 @@ a:hover {
   right: 15px;
 }
 
-/* 为每个云朵添加不同的动画延迟 */
 .cloud:nth-child(1) { 
     top: 20%; 
     animation-delay: 0s; 
@@ -127,4 +194,33 @@ a:hover {
 .cloud:nth-child(4) { 
     top: 80%; 
     animation-delay: -12s; 
+}
+
+/* 添加星星效果 */
+.stars {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    z-index: -1;
+}
+
+body.dark-mode .stars {
+    opacity: 1;
+}
+
+.star {
+    position: absolute;
+    background-color: white;
+    border-radius: 50%;
+    animation: twinkle 4s infinite ease-in-out;
+}
+
+@keyframes twinkle {
+    0%, 100% { opacity: 0.2; }
+    50% { opacity: 1; }
 }

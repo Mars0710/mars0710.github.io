@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Homepage</title>
-    <script src="code/input.js" defer></script>
-    <script src="code/background.js" defer></script>
+    <title>你好呀~</title>
+        <script src="code/input01.js" defer></script>
+        <script src="code/input.js" defer></script>
+        <script src="code/background.js" defer></script>
     <link rel="stylesheet" href="code/STYLE01.css">
     <link rel="stylesheet" href="code/STYLE02.css">
 </head>
@@ -26,13 +27,18 @@
     </div>
 
     <div class="container">
-    <p>输入表达式，我来算算~</p><input type="text" id="myInput" placeholder="例:1+1">
-    <button id="storeBtn">提交</button>
-    <p id="result"></p>
+        <h1>输入表达式，我来算算~</h1>
+        <input type="text" id="myInput" placeholder="例:1+1">
+        <button id="storeBtn">提交</button>
+        <p id="result"></p>
     </div>
-
-    <a id="rtopcorner" href="login.html">登录</a>
-
+    <div class="container">
+        <h1>一元二次方程求根~</h1>
+        <input type="text" id="aa" placeholder="二次项系数">
+        <input type="text" id="bb" placeholder="一次项系数">
+        <input type="text" id="cc" placeholder="常数项">
+        <button id="store">计算根</button>
+        <p id="roots"></p>
+    </div>
 </body>
-
 </html>

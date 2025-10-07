@@ -60,3 +60,54 @@ body.dark-mode button:hover {
     color: #16213e;
     box-shadow: 0 2px 5px rgba(0,0,0,0.3);
 }
+
+b {
+    font-size: 1.1em;
+    font-weight: bold;
+    color: navy;
+    text-decoration: none;
+    padding: 8px 10px;
+    border: 2px solid navy;
+    border-radius: 30px;
+    display: block;
+    transition: all 0.3s ease;
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+body.dark-mode b {
+    color: #6ab1e7;
+    border-color: #6ab1e7;
+    background-color: #16213e;
+}
+
+b:hover {
+    background-color: navy;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+#rtopcorner {
+    font-weight: bold;
+    position: fixed;
+    top: 18px;
+    right: 200px;
+    z-index: 10;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+#ltopcorner {
+    font-weight: bold;
+    position: fixed;
+    top: 18px;
+    left: 20px;
+    z-index: 10;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+body.dark-mode b:hover {
+    background-color: #6ab1e7;
+    color: #16213e;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+}

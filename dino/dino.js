@@ -33,7 +33,7 @@
 <script>
     document.onkeydown = function(evt) {
     evt = evt || window.event;
-    if (evt.keyCode == 32||'ontouchstart' in document.documentElement) {
+    if (evt.keyCode == 32||'ontouchstart' in window) {
         var box = document.getElementById("messageBox");
         box.style.visibility="hidden";
     }

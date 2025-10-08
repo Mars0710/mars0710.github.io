@@ -30,26 +30,8 @@
          <h1>按空格键即可开始游戏</h1>
          <div class="niokbutton" onclick="okbuttonsend()"></div>
     </div>
-    <button id="touchToJump" style="position:absolute;bottom:10px;left:10px;font-size: 1.1em;font-weight: bold;color: navy;text-decoration: none;padding: 10px 10px;border: 2px solid navy;border-radius: 30px;display: inline-block;background-color: white;box-shadow: 0 2px 5px rgba(0,0,0,0.2);margin: 5px;">
-        Jump!
-    </button>
 </body>
 <script>
-    // 创建模拟空格键按下的函数
-    function simulateSpaceKey() {
-        // 创建并触发空格键按下事件
-        const spaceEvent = new KeyboardEvent('keydown', {
-            key: ' ',
-            keyCode: 32,
-            which: 32,
-            code: 'Space',
-            bubbles: true
-        });
-        document.dispatchEvent(spaceEvent);
-    }
-    // 为按钮添加点击事件
-    document.getElementById('touchToJump').addEventListener('click', simulateSpaceKey);
-    
     document.onkeydown = function(evt) {
     evt = evt || window.event;
     if (evt.keyCode == 32) {
@@ -57,12 +39,5 @@
         box.style.visibility = "hidden";
     }
     };
-    const touchToJump = document.getElementById('touchToJump');   
-    if (touchToJump) {
-        touchToJump.addEventListener('click', function(){
-            var box = document.getElementById("messageBox");
-            box.style.visibility = "hidden";
-        });
-    }
 </script>
 </html>

@@ -11,6 +11,50 @@
     <script src="./dino.js"></script>
 </head>
 
+<script>
+    const touchChecker=document.querySelector('body');
+    touchChecker.addEventListener('touchstart',function(e)
+    {
+        function simulateSpaceBasic() {
+        const event = new KeyboardEvent('keydown', {
+            key: ' ',
+            code: 'Space',
+            keyCode: 32,
+            which: 32,
+            bubbles: true
+        });
+        document.dispatchEvent(event);
+    }
+
+    // 详细模拟（包括keyup事件）
+    function simulateSpaceDetailed() {
+        // 创建keydown事件
+        const keydownEvent = new KeyboardEvent('keydown', {
+            key: ' ',
+            code: 'Space',
+            keyCode: 32,
+            which: 32,
+            bubbles: true
+        });
+        
+        // 创建keyup事件
+        const keyupEvent = new KeyboardEvent('keyup', {
+            key: ' ',
+            code: 'Space',
+            keyCode: 32,
+            which: 32,
+            bubbles: true
+        });
+        
+        // 触发事件
+        document.dispatchEvent(keydownEvent);
+        setTimeout(() => {
+            document.dispatchEvent(keyupEvent);
+        }, 100);
+    }
+    });
+</script>
+
 <body id="t" class="offline">
     <div id="main-frame-error" class="interstitial-wrapper">
         <div id="main-content">

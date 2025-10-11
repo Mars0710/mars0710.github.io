@@ -11,48 +11,117 @@
     <script src="./dino.js"></script>
 </head>
 
-<script>
-    const touchChecker=document.querySelector('body');
-    touchChecker.addEventListener('touchstart',function(e)
-    {
-        function simulateSpaceBasic() {
-        const event = new KeyboardEvent('keydown', {
-            key: ' ',
-            code: 'Space',
-            keyCode: 32,
-            which: 32,
-            bubbles: true
-        });
-        document.dispatchEvent(event);
-    }
+<style>
+#fullscreen-tap-area {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    z-index: 9998;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    touch-action: manipulation;
+}
+</style>
 
-    // 详细模拟（包括keyup事件）
-    function simulateSpaceDetailed() {
-        // 创建keydown事件
-        const keydownEvent = new KeyboardEvent('keydown', {
-            key: ' ',
-            code: 'Space',
-            keyCode: 32,
-            which: 32,
-            bubbles: true
-        });
-        
-        // 创建keyup事件
-        const keyupEvent = new KeyboardEvent('keyup', {
-            key: ' ',
-            code: 'Space',
-            keyCode: 32,
-            which: 32,
-            bubbles: true
-        });
-        
-        // 触发事件
-        document.dispatchEvent(keydownEvent);
-        setTimeout(() => {
-            document.dispatchEvent(keyupEvent);
-        }, 100);
+<script>
+// 创建全屏透明覆盖层
+function createFullscreenTapButton() {
+    // 移除可能已存在的按钮
+    const existingButton = document.getElementById('fullscreen-tap-area');
+    if (existingButton) {
+        existingButton.remove();
     }
+    
+    const tapArea = document.createElement('div');
+    tapArea.id = 'fullscreen-tap-area';
+    
+    // 添加触摸/点击事件
+    tapArea.addEventListener('click', function(e) {
+        e.preventDefault();
+        triggerSpacePress();
+        hideMessageBox();
     });
+    
+    tapArea.addEventListener('touchstart', function(e) {
+        e.preventDefault();
+        triggerSpacePress();
+        hideMessageBox();
+    }, { passive: false });
+    
+    tapArea.addEventListener('touchend', function(e) {
+        e.preventDefault();
+    }, { passive: false });
+    
+    document.body.appendChild(tapArea);
+    return tapArea;
+}
+
+// 触发空格键按下
+function triggerSpacePress() {
+    // 创建并触发空格键事件
+    const spaceEvent = new KeyboardEvent('keydown', {
+        key: ' ',
+        keyCode: 32,
+        code: 'Space',
+        which: 32,
+        bubbles: true,
+        cancelable: true
+    });
+    
+    document.dispatchEvent(spaceEvent);
+    
+    // 可选：触发keyup事件来模拟完整的按键过程
+    setTimeout(() => {
+        const spaceUpEvent = new KeyboardEvent('keyup', {
+            key: ' ',
+            keyCode: 32,
+            code: 'Space',
+            which: 32,
+            bubbles: true,
+            cancelable: true
+        });
+        document.dispatchEvent(spaceUpEvent);
+    }, 100);
+}
+
+// 隐藏消息框（与原有的空格键功能一致）
+function hideMessageBox() {
+    var box = document.getElementById("messageBox");
+    if (box) {
+        box.style.visibility = "hidden";
+    }
+}
+
+// 页面加载后创建按钮
+document.addEventListener('DOMContentLoaded', function() {
+    createFullscreenTapButton();
+    
+    // 可选：隐藏原始触摸控制器（如果存在）
+    setTimeout(() => {
+        const originalController = document.querySelector('.controller');
+        if (originalController) {
+            originalController.style.display = 'none';
+        }
+    }, 1000);
+});
+
+// 确保原有的键盘事件仍然工作
+document.onkeydown = function(evt) {
+    evt = evt || window.event;
+    if (evt.keyCode == 32) {
+        var box = document.getElementById("messageBox");
+        if (box) {
+            box.style.visibility = "hidden";
+        }
+    }
+};
 </script>
 
 <body id="t" class="offline">
@@ -75,13 +144,3 @@
          <div class="niokbutton" onclick="okbuttonsend()"></div>
     </div>
 </body>
-<script>
-    document.onkeydown = function(evt) {
-    evt = evt || window.event;
-    if (evt.keyCode == 32) {
-        var box = document.getElementById("messageBox");
-        box.style.visibility = "hidden";
-    }
-    };
-</script>
-</html>

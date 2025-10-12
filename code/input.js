@@ -24,8 +24,8 @@ function check(a) {
     }
     const x = parseInt(match[1]);
     const y = parseInt(match[2]);
-    // 检查条件：x+y>=20
-    if (x + y >= 20) {
+    // 检查条件
+    if (x + y > 20|| x<0 || y<0) {
         document.getElementById('result').textContent="手脚并用也算不出来呀~";
     } else {
         document.getElementById('result').textContent ="我知道！是"+(x+y);

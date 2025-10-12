@@ -1,7 +1,6 @@
 // Copyright (c) 2014 The Chromium Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
-// extract from chromium source code by @liuwayong
 (function () {
     'use strict';
     /**
@@ -2750,3 +2749,80 @@ function onDocumentLoad() {
 }
 
 document.addEventListener('DOMContentLoaded', onDocumentLoad);
+
+
+// 简单的全屏反色过渡
+(function() {
+    'use strict';
+    
+    const originalInit = Runner.prototype.init;
+    Runner.prototype.init = function() {
+        originalInit.call(this);
+        setupSimpleFullscreenInvert.call(this);
+    };
+    
+    function setupSimpleFullscreenInvert() {
+        // 创建全屏反色样式
+        const style = document.createElement('style');
+        document.head.appendChild(style);
+        
+        let currentInvert = 0;
+        let targetInvert = 0;
+        let transitionId = null;
+        
+        function applyFullscreenInvert(value) {
+            // 应用到整个页面
+            document.documentElement.style.filter = `invert(${value}) hue-rotate(${180 * value}deg)`;
+            document.documentElement.style.background = value > 0.5 ? '#000' : '#fff';
+            
+            // 游戏画布保持正常（因为外层已经反色了）
+            const canvas = document.querySelector('.runner-canvas');
+            if (canvas) {
+                canvas.style.filter = 'none';
+            }
+        }
+        
+        function startTransition() {
+            if (transitionId) {
+                cancelAnimationFrame(transitionId);
+            }
+            
+            const startTime = Date.now();
+            const startValue = currentInvert;
+            const duration = 500; // 0.5秒
+            
+            function animate() {
+                const elapsed = Date.now() - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+                
+                currentInvert = startValue + (targetInvert - startValue) * progress;
+                applyFullscreenInvert(currentInvert);
+                
+                if (progress < 1) {
+                    transitionId = requestAnimationFrame(animate);
+                } else {
+                    currentInvert = targetInvert;
+                    transitionId = null;
+                }
+            }
+            
+            animate();
+        }
+        
+        // 监听inverted类变化
+        const observer = new MutationObserver(function(mutations) {
+            const shouldInvert = document.body.classList.contains('inverted');
+            const newTarget = shouldInvert ? 1 : 0;
+            
+            if (newTarget !== targetInvert) {
+                targetInvert = newTarget;
+                startTransition();
+            }
+        });
+        
+        observer.observe(document.body, {
+            attributes: true,
+            attributeFilter: ['class']
+        });
+    }
+})();

@@ -2774,12 +2774,6 @@ document.addEventListener('DOMContentLoaded', onDocumentLoad);
             // 应用到整个页面
             document.documentElement.style.filter = `invert(${value}) hue-rotate(${180 * value}deg)`;
             document.documentElement.style.background = value > 0.5 ? '#000' : '#fff';
-            
-            // 游戏画布保持正常（因为外层已经反色了）
-            const canvas = document.querySelector('.runner-canvas');
-            if (canvas) {
-                canvas.style.filter = 'none';
-            }
         }
         
         function startTransition() {

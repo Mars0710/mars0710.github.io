@@ -91,18 +91,16 @@ b:hover {
 #rtopcorner {
     font-weight: bold;
     position: fixed;
-    top: 18px;
-    right: 200px;
     z-index: 10;
+    float: right;
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
 
 #ltopcorner {
     font-weight: bold;
     position: fixed;
-    top: 18px;
-    left: 20px;
     z-index: 10;
+    float: left;
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
 

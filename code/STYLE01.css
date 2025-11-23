@@ -81,7 +81,7 @@ a {
     padding: 8px 10px;
     border: 2px solid navy;
     border-radius: 30px;
-    display: block;
+    display: inline-block;
     transition: all 0.3s ease;
     background-color: white;
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);

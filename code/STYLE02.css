@@ -107,8 +107,8 @@ b:hover {
 #ltopcorner1 {
     font-weight: bold;
     position: fixed;
-    top: 60px;
-    left:20px;
+    top: 18px;
+    left:90px;
     z-index: 10;
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }

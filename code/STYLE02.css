@@ -104,6 +104,15 @@ b:hover {
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
 
+#ltopcorner1 {
+    font-weight: bold;
+    position: fixed;
+    top: 60px;
+    left:20px;
+    z-index: 10;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
 body.dark-mode b:hover {
     background-color: #6ab1e7;
     color: #16213e;

@@ -5,41 +5,25 @@
 }
 
 body {
+    font-family: 'Arial', sans-serif;
     background-color: lightblue;
-    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
     padding: 20px;
-    min-height: 100vh;
-    position: relative;
-    overflow-x: hidden;
-    transition: all 0.5s ease;
-}
-
-body.dark-mode {
-    background-color: #1a1a2e;
-    color: #e6e6e6;
 }
 
 .container {
-    max-width: 800px;
-    margin: 50px auto;
-    padding: 30px;
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-    text-align: left;
-    transition: all 0.3s ease;
-    display: block;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 100%;
+    transition: all 0.5s ease;
 }
 
-body.dark-mode .container {
-    background-color: #16213e;
-    color: #e6e6e6;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.4);
-}
-
-.container:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+header {
+    text-align: center;
+    margin-bottom: 20px;
 }
 
 h1 {
@@ -48,44 +32,6 @@ h1 {
     font-size: 2.5em;
     margin-bottom: 20px;
     text-align: center;
-}
-
-body.dark-mode h1 {
-    color: #6ab1e7;
-}
-
-p {
-    color: grey;
-    font-size: 1.2em;
-    margin-bottom: 20px;
-}
-
-body.dark-mode p {
-    color: #b0b0b0;
-}
-
-ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-li {
-    margin: 20px 0;
-}
-
-a {
-    font-size: 1.1em;
-    font-weight: bold;
-    color: navy;
-    text-decoration: none;
-    padding: 8px 10px;
-    border: 2px solid navy;
-    border-radius: 30px;
-    display: inline-block;
-    transition: all 0.3s ease;
-    background-color: white;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-    margin: 3px;
 }
 
 header {
@@ -123,19 +69,24 @@ header {
 }
 
 #reset-button {
+    font-weight: bold;
+    position: fixed;
+    z-index: 10;
+    left: 20px;
+    top: 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
     padding: 5px 15px;
     background-color: #456ea0;
     color: white;
     border: none;
     border-radius: 4px;
-    cursor: pointer;
     font-size: 16px;
-    transition: background-color 0.3s;
-    margin: auto;
-    width: 100x;
+    transition: all 0.5s ease;
 }
 
 #reset-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
     background-color: #456ea0;
 }
 
@@ -144,8 +95,7 @@ header {
     grid-template-columns: repeat(9, 30px);
     grid-template-rows: repeat(9, 30px);
     gap: 2px;
-    margin: auto;
-    width: 40%;
+    margin: 0 auto;
 }
 
 .cell {
@@ -159,6 +109,7 @@ header {
     font-weight: bold;
     cursor: pointer;
     user-select: none;
+    font-size: 20px;
 }
 
 .cell.revealed {
@@ -172,7 +123,6 @@ header {
 
 .cell.flagged::after {
     content: "🚩";
-    font-size: 18px;
 }
 
 .cell.mine {
@@ -181,7 +131,6 @@ header {
 
 .cell.mine::after {
     content: "💣";
-    font-size: 18px;
 }
 
 /* 数字颜色 */

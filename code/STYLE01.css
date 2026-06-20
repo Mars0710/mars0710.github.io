@@ -157,8 +157,9 @@ body.dark-mode .toggle-btn {
 }
 
 /* 云朵动画 */
+/* STYLE01.css 中的云朵动画部分 */
 @keyframes floatAcross {
-  0% { transform: translateX(-120px); }
+  0% { transform: translateX(-500px); }
   100% { transform: translateX(calc(100vw + 120px)); }
 }
 
@@ -171,6 +172,8 @@ body.dark-mode .toggle-btn {
   animation: floatAcross 20s infinite linear;
   z-index: -1;
 }
+
+/* 其余云朵样式保持不变 */
 
 body.dark-mode .cloud {
     background: rgba(100, 100, 150, 1);

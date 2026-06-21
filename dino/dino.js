@@ -105,6 +105,8 @@
         ACCELERATION: 0.001,
         BG_CLOUD_SPEED: 0.2,
         BOTTOM_PAD: 10,
+        // Scroll Y threshold at which the game can be activated.
+        CANVAS_IN_VIEW_OFFSET: -10,
         CLEAR_TIME: 3000,
         CLOUD_FREQUENCY: 0.5,
         GAMEOVER_CLEAR_TIME: 750,

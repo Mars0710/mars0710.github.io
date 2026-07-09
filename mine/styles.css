@@ -5,7 +5,6 @@
 }
 
 body {
-    font-family: 'Arial', sans-serif;
     background-color: lightblue;
     display: flex;
     justify-content: center;
@@ -16,14 +15,9 @@ body {
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    padding: 20px;
+    padding: 100px;
     max-width: 100%;
     transition: all 0.5s ease;
-}
-
-header {
-    text-align: center;
-    margin-bottom: 20px;
 }
 
 h1 {
@@ -135,27 +129,27 @@ header {
 
 /* 数字颜色 */
 .cell[data-count="1"] {
-    color: blue;
+    color: rgb(1, 1, 138);
 }
 
 .cell[data-count="2"] {
-    color: green;
+    color: rgb(7, 101, 7);
 }
 
 .cell[data-count="3"] {
-    color: red;
+    color: rgb(172, 16, 16);
 }
 
 .cell[data-count="4"] {
-    color: darkblue;
+    color: rgb(6, 6, 63);
 }
 
 .cell[data-count="5"] {
-    color: darkred;
+    color: rgb(87, 3, 3);
 }
 
 .cell[data-count="6"] {
-    color: teal;
+    color: rgb(37, 118, 118);
 }
 
 .cell[data-count="7"] {
@@ -182,51 +176,4 @@ header {
     .game-info {
         font-size: 16px;
     }
-}
-
-@keyframes floatAcross {
-    0% { transform: translateX(-240px); }
-    100% { transform: translateX(calc(100vw + 120px)); }
-}
-
-.cloud {
-    position: absolute;
-    left: -120px;
-    width: 240px;
-    height: 80px;
-    background: rgba(255, 255, 255, 1);
-    border-radius: 120px;
-    animation: floatAcross 20s infinite linear;
-    z-index: -1;
-}
-
-.cloud::before {
-    width: 100px;
-    height: 100px;
-    top: -20px;
-    left: 15px;
-}
-
-.cloud::after {
-    width: 100px;
-    height: 140px;
-    top: -30px;
-    right: 15px;
-}
-
-.cloud:nth-child(1) { 
-    top: 20%; 
-    animation-delay: 0s; 
-}
-.cloud:nth-child(2) { 
-    top: 40%; 
-    animation-delay: -18s; 
-}
-.cloud:nth-child(3) { 
-    top: 60%; 
-    animation-delay: -9s; 
-}
-.cloud:nth-child(4) { 
-    top: 80%; 
-    animation-delay: -15s; 
 }
